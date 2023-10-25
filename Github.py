@@ -14,6 +14,7 @@ def userInput():
     opt = input('Please enter an option: ')
     return int(opt)
 
+#Encodes password 
 def encode() -> int:
     password = input('Please enter your password to encode: ')
     new_password = ''
