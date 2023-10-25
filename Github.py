@@ -1,5 +1,5 @@
 #Aaron Song
-#(partner name)
+#(Garrett Elebash)
 
 #Prints menu
 def printMenu():
@@ -20,7 +20,18 @@ def encode() -> int:
     new_password = ''
     for i in password:
         temp = int(i)
-        new_password += str((temp+4)%10)
+        new_password += str((temp+3)%10)
+    return new_password
+
+def decode(password):
+    new_password = ''
+    for i in password:
+        temp = int(i)
+        if temp < 3:
+            temp = 10 + temp-3
+        else:
+            temp-=3
+        new_password += str(temp)
     return new_password
 
 def main():
@@ -28,15 +39,16 @@ def main():
     while loop:
         printMenu()
         option = userInput()
-
+        print
         match option:
             case 1:
                 password = encode()
-                return('Your password has been encoded and stored!\n')
+                print('Your password has been encoded and stored!\n')
             case 2:
-                pass
+                decoded = decode(password)
+                print(f'Your encoded password is {password}, and your original password is {decoded}\n')
             case 3:
-                option = False
+                loop = False
 
 if __name__ == '__main__':
     main()
